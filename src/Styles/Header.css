@@ -1,0 +1,43 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(#eb8a44, #f0d1ba); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.site-title {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30%; 
+  height: auto; 
+  margin-right: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .site-title {
+    font-size: 20px; 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .site-title {
+    font-size: 18px; 
+  }
+}
+
