@@ -38,3 +38,4 @@ C:\Users\nikki\Desktop\Epicodus stuff\recipe-generator\Pantry.Solution\obj\Debug
 C:\Users\nikki\Desktop\Epicodus stuff\recipe-generator\Pantry.Solution\obj\Debug\net6.0\Pantry.pdb
 C:\Users\nikki\Desktop\Epicodus stuff\recipe-generator\Pantry.Solution\obj\Debug\net6.0\Pantry.genruntimeconfig.cache
 C:\Users\nikki\Desktop\Epicodus stuff\recipe-generator\Pantry.Solution\obj\Debug\net6.0\ref\Pantry.dll
+C:\Users\nikki\Desktop\Epicodus stuff\recipe-generator\Pantry.Solution\bin\Debug\net6.0\appsettings.json

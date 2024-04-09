@@ -2,7 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace Pantry.Models;
+namespace Pantry.Models
+{
 
 public class PantryContext : IdentityDbContext<ApplicationUser>
 {
@@ -10,4 +11,5 @@ public class PantryContext : IdentityDbContext<ApplicationUser>
   public DbSet<Ingredient> Ingredients { get; set; }
   public DbSet<IngredientRecipe> IngredientRecipes { get; set; }
   public PantryContext(DbContextOptions options) : base(options) { }
+}
 }
