@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj": {}
+    "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj": {
+    "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj",
+        "projectUniqueName": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj",
         "projectName": "Pantry",
-        "projectPath": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj",
-        "packagesPath": "C:\\Users\\raves\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\obj\\",
+        "projectPath": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj",
+        "packagesPath": "C:\\Users\\nikki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\raves\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\nikki\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,13 +38,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-
-
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.0, )"
             },
-
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0, )"
