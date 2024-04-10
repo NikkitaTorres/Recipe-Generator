@@ -1,3 +1,4 @@
+
 using System.Text.Json.Serialization;
 using Pantry.Models;
 using Microsoft.EntityFrameworkCore;
@@ -75,3 +76,4 @@ app.UseCors(builder => builder
 app.MapControllers();
 
 app.Run();
+

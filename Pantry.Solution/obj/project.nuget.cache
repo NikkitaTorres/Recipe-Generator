@@ -1,9 +1,13 @@
 {
   "version": 2,
+
   "dgSpecHash": "Lth6go6t1uUp9V6ieu6V4lZjm+jq2U1pGZOMdOUG7cUVFN/MCCMQ2eLGgHMK+uMtQiTD698gaJAJHFjB9DpDhw==",
+
   "success": true,
-  "projectFilePath": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj",
+  "projectFilePath": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj",
   "expectedPackageFiles": [
+
+    
     "/Users/gallegos/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/gallegos/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.0/microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
     "/Users/gallegos/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.0/microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
@@ -44,6 +48,7 @@
     "/Users/gallegos/.nuget/packages/system.identitymodel.tokens.jwt/6.10.0/system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
     "/Users/gallegos/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/gallegos/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
+
   ],
   "logs": []
 }

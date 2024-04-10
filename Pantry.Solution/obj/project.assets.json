@@ -15,6 +15,7 @@
           }
         }
       },
+
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -34,6 +35,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
         "type": "package",
         "compile": {
@@ -80,6 +82,7 @@
           }
         }
       },
+
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -89,6 +92,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+
       "Microsoft.EntityFrameworkCore/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -672,6 +676,7 @@
         "logo.png"
       ]
     },
+
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.0": {
       "sha512": "eIhpX25uUn33Ornnh718V2G/nESvk3TNX2FjTarv634GLfE50Fhz2geJ/QYpSmFaUIQ1hkZPfd9i0LcpZ9bfLQ==",
       "type": "package",
@@ -687,6 +692,7 @@
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
+
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
       "sha512": "ZWFBiHwkmipr+7t3MEPa7oB/iE8Kf5wvUptn9AXj7P7l/tGHEmRb1606Mlh/e2zkYwfjNGDH4Z5dUUlcnyccIw==",
       "type": "package",
@@ -740,6 +746,7 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
+
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -808,6 +815,7 @@
         "version.txt"
       ]
     },
+
     "Microsoft.EntityFrameworkCore/6.0.0": {
       "sha512": "BdHAtHzfQt3rltgSoYamSlHg2qawPtEDT677/bcSJlO8lQ/lj6XWlusM0TOt59O8Sbqm3hAC1a+4cEBxmv56pw==",
       "type": "package",
@@ -1777,7 +1785,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.0",
+
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
@@ -1786,19 +1796,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/gallegos/.nuget/packages/": {}
+    "C:\\Users\\raves\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj",
+      "projectUniqueName": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj",
       "projectName": "Pantry",
-      "projectPath": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj",
-      "packagesPath": "/Users/gallegos/.nuget/packages/",
-      "outputPath": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/obj/",
+      "projectPath": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\Pantry.csproj",
+      "packagesPath": "C:\\Users\\raves\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\raves\\OneDrive\\Desktop\\Epicodus\\Recipe-Generator\\Pantry.Solution\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/gallegos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\raves\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1822,10 +1832,12 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.0, )"
           },
+
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.0, )"
@@ -1868,7 +1880,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
