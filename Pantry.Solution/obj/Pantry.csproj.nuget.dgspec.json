@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj": {}
+    "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj": {
+    "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj",
+        "projectUniqueName": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj",
         "projectName": "Pantry",
-        "projectPath": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\Pantry.csproj",
-        "packagesPath": "C:\\Users\\nikki\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikki\\Desktop\\Epicodus stuff\\recipe-generator\\Pantry.Solution\\obj\\",
+        "projectPath": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/Pantry.csproj",
+        "packagesPath": "/Users/gallegos/.nuget/packages/",
+        "outputPath": "/Users/gallegos/Desktop/recipe-generator/Pantry.Solution/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nikki\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/gallegos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }
