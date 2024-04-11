@@ -2,42 +2,61 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Pantry.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Pantry.Controllers
 {
-
+  
+[Authorize]
 public class IngredientsController : Controller
 {
 private readonly PantryContext _db;
+private readonly UserManager<ApplicationUser> _userManager;
 
-        public IngredientsController(PantryContext db)
+        public IngredientsController(UserManager<ApplicationUser> userManager, PantryContext db)
         {
             _db = db;
+            _userManager = userManager;
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
-            List<Ingredient> model = _db.Ingredients
-                .Include(i => i.IngredientRecipes)
-                .ToList();
-            return View(model);
+          List<Ingredient> userIngredients = _db.Ingredients.Where(entry => entry.User.UserName == currentUser.UserName).ToList();
+          if (User.Identity.IsAuthenticated)
+          {
+            string UserName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+           ApplicationUser currentUser = await _userManager.FindByIdAsync(UserName);
+
+           return View(new model
+           {
+              UserIngredients = userIngredients,
+            });
+          }
+            return View(new model);
         }
 
         public ActionResult Create()
         {
-            return View(new Ingredient()); // Removed SetIngredient method call
+           return View(Ingredient(new Ingredient(), "Create")); // Removed SetIngredient method call
         }
 
         [HttpPost]
         public ActionResult Create(Ingredient ingredient)
         {
-            if (!ModelState.IsValid)
+             if (!ModelState.IsValid)
+              {
+                return View(UserIngredient(ingredient, "Create"));
+              }
+            else
             {
-                return View(ingredient); // Removed SetIngredient method call
+              string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+              ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+              ingredient.User = currentUser;
+              _db.Ingredients.Add(ingredient);
+              _db.SaveChanges();
+              return RedirectToAction("Index");
             }
-            _db.Ingredients.Add(ingredient);
-            _db.SaveChanges();
-            return RedirectToAction("Details", new { id = ingredient.IngredientId });
         }
   // public ActionResult Edit(int id)
   // {
@@ -65,20 +84,19 @@ private readonly PantryContext _db;
   //   return View(ingredient);
   // }
 
-  [HttpPost]
   public ActionResult Delete(int id)
   {
-    Ingredient target = _db.Ingredients.Include(i => i.IngredientRecipes).FirstOrDefault(i => i.IngredientId == id);
-    if(target.IngredientRecipes.Count == 0)
-    {
-      _db.Ingredients.Remove(target);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
-    else
-    {
-      return RedirectToAction("Details", new { id = target.IngredientId});
-    }
+    Ingredient thisIngredient = _db.Ingredients.FirstOrDefault(Ingredient => Ingredient.IngredientId == id);
+    return View(thisIngredient);
+  }
+
+  [HttpPost, ActionName("Delete")]
+  public ActionResult DeleteConfirmed(int id)
+  {
+    Ingredient thisIngredient = _db.Ingredients.FirstOrDefault(Ingredient => Ingredient.IngredientId == id);
+    _db.Ingredients.Remove(thisIngredient);
+    _db.SaveChanges();
+    return RedirectToAction("Index");
   }
 }
 }
