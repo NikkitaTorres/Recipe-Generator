@@ -1,19 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import App from './App';
 import Pantry from './Components/Pantry';
 import Footer from './Components/Footer';
-
+import SignIn from './Components/SignIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Router>
     <Header />
-    <Home />
-    <App />
-    <Pantry />
+    <React.StrictMode>
+      <Routes>
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Home" element={<Home />} />
+      </Routes>
+      <UserProfile />
+    </React.StrictMode>
     <Footer />
-  </React.StrictMode>
+  </Router>
 );

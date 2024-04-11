@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const SignIn = () => {
+const SignIn = () => {
   const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [signInMessage, setSignInMessage] = useState('');
   const [registerData, setRegisterData] = useState({ email: '', username: '', password: '' });
@@ -101,3 +101,5 @@ export const SignIn = () => {
     </div>
   );
 };
+
+export default SignIn;

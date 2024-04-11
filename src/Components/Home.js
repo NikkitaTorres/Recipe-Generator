@@ -1,7 +1,12 @@
 import React from "react";
 import 'tailwindcss/tailwind.css';
 
+
 function Home() {
+	const handleSignIn = () => {
+		window.location.href = '/SignIn';
+	}
+
   return (
     <div className="bg-yellow-200 min-h-screen flex items-center justify-center">
     <div className="container mx-auto px-4 py-8 bg-white shadow-lg rounded-lg sm:text-sm md:text-base lg:text-lg xl:text-xl" id="description">
@@ -12,8 +17,9 @@ function Home() {
       <h2 className="text-2xl mb-2">Get Started Today:</h2>
       <p className="text-lg text-gray-900 mb-4">Join our community of home cooks and culinary enthusiasts and let "What's in the Pantry" transform your cooking experience. Say goodbye to mealtime monotony and hello to culinary creativity!</p>
       <div className="flex space-x-4">
-          <button className="bg-lime-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Create Account</button>
-          <button className="bg-amber-600 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Sign In</button>
+          <button className="bg-lime-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleSignIn}>Create Account</button>
+        
+          <button className="bg-amber-600 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"onClick={handleSignIn}></button>
         </div>
     </div>
     </div>
