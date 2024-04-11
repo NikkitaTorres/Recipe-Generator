@@ -1,67 +1,67 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Pantry.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Pantry.Controllers;
-
+namespace Pantry.Controllers
+{
+  
 [Authorize]
 public class IngredientsController : Controller
 {
-  private readonly PantryContext _db;
-  private readonly UserManager<ApplicationUser> _userManager;
-  public IngredientsController(UserManager<ApplicationUser> userManager, PantryContext db)
-  {
-    _userManager = userManager;
-    _db = db;
-  }
-  [AllowAnonymous]
-  public ActionResult Index()
-  {
-    List<Ingredient> userIngredients = _db.Ingredients.Where(entry => entry.User.Id == currentUser.Id).ToList();
-    if (User.Identity.IsAuthenticated)
-    {
-      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+private readonly PantryContext _db;
+private readonly UserManager<ApplicationUser> _userManager;
 
-      return View(new model
-      {
-        UserIngredients = userIngredients,
-      });
-    }
-    return View(new model);
-  }
+        public IngredientsController(UserManager<ApplicationUser> userManager, PantryContext db)
+        {
+            _db = db;
+            _userManager = userManager;
+        }
 
-  public ActionResult Create()
-  {
-    return View(Ingredient(new Ingredient(), "Create"));
-  }
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+          List<Ingredient> userIngredients = _db.Ingredients.Where(entry => entry.User.UserName == currentUser.UserName).ToList();
+          if (User.Identity.IsAuthenticated)
+          {
+            string UserName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+           ApplicationUser currentUser = await _userManager.FindByIdAsync(UserName);
 
-  [HttpPost]
-  public async Task<ActionResult> Create(Ingredient ingredient)
-  {
-    if (!ModelState.IsValid)
-    {
-      return View(UserIngredient(ingredient, "Create"));
-    }
-    else
-    {
-      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      ingredient.User = currentUser;
-      _db.Ingredients.Add(ingredient);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
-  }
+           return View(new model
+           {
+              UserIngredients = userIngredients,
+            });
+          }
+            return View(new model);
+        }
 
-  //Do we need edit and details?
+        public ActionResult Create()
+        {
+           return View(Ingredient(new Ingredient(), "Create")); // Removed SetIngredient method call
+        }
 
+        [HttpPost]
+        public ActionResult Create(Ingredient ingredient)
+        {
+             if (!ModelState.IsValid)
+              {
+                return View(UserIngredient(ingredient, "Create"));
+              }
+            else
+            {
+              string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+              ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+              ingredient.User = currentUser;
+              _db.Ingredients.Add(ingredient);
+              _db.SaveChanges();
+              return RedirectToAction("Index");
+            }
+        }
   // public ActionResult Edit(int id)
   // {
   //   Ingredient target = _db.Ingredients.FirstOrDefault(i => i.IngredientId == id);
-  //   return View(SetIngredient(target, "Edit"));
+  //   //return View(SetIngredient(target, "Edit"));
   // }
   // [HttpPost]
   // public ActionResult Edit(Ingredient ingredient)
@@ -78,8 +78,8 @@ public class IngredientsController : Controller
   // public ActionResult Details(int id)
   // {
   //   Ingredient ingredient = _db.Ingredients
-  //   .Include(i => i.IngredientIngredients)
-  //   .ThenInclude(iR => iR.Ingredient)
+  //   .Include(i => i.IngredientRecipes)
+  //   .ThenInclude(iR => iR.Recipe)
   //   .FirstOrDefault(i => i.IngredientId == id);
   //   return View(ingredient);
   // }
@@ -89,6 +89,7 @@ public class IngredientsController : Controller
     Ingredient thisIngredient = _db.Ingredients.FirstOrDefault(Ingredient => Ingredient.IngredientId == id);
     return View(thisIngredient);
   }
+
   [HttpPost, ActionName("Delete")]
   public ActionResult DeleteConfirmed(int id)
   {
@@ -97,4 +98,5 @@ public class IngredientsController : Controller
     _db.SaveChanges();
     return RedirectToAction("Index");
   }
+}
 }
