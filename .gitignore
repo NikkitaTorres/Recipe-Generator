@@ -27,3 +27,4 @@ appsettings.json
 appsettings.*.json
 
 .mono
+obj
