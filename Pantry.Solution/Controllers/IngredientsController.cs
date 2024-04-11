@@ -3,6 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Pantry.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity; // Add this for UserManager<>
+using System.Threading.Tasks; // Add this for Task<>
+using System.Security.Claims; // Add this for Claims
+using System.Collections.Generic;
+using System.Linq;
+
+
 
 namespace Pantry.Controllers
 {
@@ -20,44 +27,44 @@ private readonly UserManager<ApplicationUser> _userManager;
         }
 
         [AllowAnonymous]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-          List<Ingredient> userIngredients = _db.Ingredients.Where(entry => entry.User.UserName == currentUser.UserName).ToList();
           if (User.Identity.IsAuthenticated)
           {
             string UserName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
            ApplicationUser currentUser = await _userManager.FindByIdAsync(UserName);
+           List<Ingredient> userIngredients = _db.Ingredients.Where(entry => entry.User.UserName == currentUser.UserName).ToList();
 
-           return View(new model
-           {
-              UserIngredients = userIngredients,
-            });
+          return View(userIngredients);
           }
-            return View(new model);
+          else
+          {
+            return View(_db.Ingredients.ToList());
+          }
         }
 
         public ActionResult Create()
         {
-           return View(Ingredient(new Ingredient(), "Create")); // Removed SetIngredient method call
+           return View(); // Removed SetIngredient method call
         }
 
         [HttpPost]
-        public ActionResult Create(Ingredient ingredient)
-        {
-             if (!ModelState.IsValid)
-              {
-                return View(UserIngredient(ingredient, "Create"));
-              }
-            else
-            {
-              string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-              ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-              ingredient.User = currentUser;
-              _db.Ingredients.Add(ingredient);
-              _db.SaveChanges();
-              return RedirectToAction("Index");
-            }
-        }
+    public async Task<ActionResult> Create(Ingredient ingredient) 
+{
+    if (!ModelState.IsValid)
+    {
+        return View(ingredient);
+    }
+        else
+      {
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+        ingredient.User = currentUser;
+        _db.Ingredients.Add(ingredient);
+        await _db.SaveChangesAsync();  // Use async version of SaveChanges
+        return RedirectToAction("Index");
+    }
+}
   // public ActionResult Edit(int id)
   // {
   //   Ingredient target = _db.Ingredients.FirstOrDefault(i => i.IngredientId == id);

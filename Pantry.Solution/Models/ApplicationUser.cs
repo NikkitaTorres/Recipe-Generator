@@ -4,6 +4,6 @@ namespace Pantry.Models
 {
   public class ApplicationUser : IdentityUser
   {
-
+    
   }
 }

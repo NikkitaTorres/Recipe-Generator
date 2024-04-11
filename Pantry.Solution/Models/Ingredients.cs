@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
-namespace Pantry.Models;
-
+namespace Pantry.Models
+{
 public class Ingredient
 {
   public int IngredientId { get; set; }
@@ -11,4 +12,7 @@ public class Ingredient
   [StringLength(255, ErrorMessage = "The ingredient may not be longer than 255 characters")]
   public string Name { get; set; }
   public List<IngredientRecipe> IngredientRecipes { get; set; }
+
+  public ApplicationUser User { get; set; }
+}
 }
