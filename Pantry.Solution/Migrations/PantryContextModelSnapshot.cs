@@ -228,56 +228,14 @@ namespace Pantry.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("IngredientId");
-
-                    b.ToTable("Ingredients");
-                });
-
-            modelBuilder.Entity("Pantry.Models.IngredientRecipe", b =>
-                {
-                    b.Property<int>("IngredientRecipeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Unit")
-                        .HasColumnType("int");
-
-                    b.HasKey("IngredientRecipeId");
-
-                    b.HasIndex("IngredientId");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("IngredientRecipes");
-                });
-
-            modelBuilder.Entity("Pantry.Models.Recipe", b =>
-                {
-                    b.Property<int>("RecipeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("RecipeId");
+                    b.HasKey("IngredientId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Recipes");
+                    b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("Pantry.Models.ApplicationUser", b =>
@@ -338,42 +296,13 @@ namespace Pantry.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Pantry.Models.IngredientRecipe", b =>
-                {
-                    b.HasOne("Pantry.Models.Ingredient", "Ingredient")
-                        .WithMany("IngredientRecipes")
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Pantry.Models.Recipe", "Recipe")
-                        .WithMany("IngredientRecipes")
-                        .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ingredient");
-
-                    b.Navigation("Recipe");
-                });
-
-            modelBuilder.Entity("Pantry.Models.Recipe", b =>
+            modelBuilder.Entity("Pantry.Models.Ingredient", b =>
                 {
                     b.HasOne("Pantry.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Pantry.Models.Ingredient", b =>
-                {
-                    b.Navigation("IngredientRecipes");
-                });
-
-            modelBuilder.Entity("Pantry.Models.Recipe", b =>
-                {
-                    b.Navigation("IngredientRecipes");
                 });
 #pragma warning restore 612, 618
         }
