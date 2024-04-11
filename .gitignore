@@ -28,3 +28,4 @@ appsettings.*.json
 
 .mono
 obj
+bin
