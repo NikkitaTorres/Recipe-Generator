@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
+import UserProfile from './Components/UserProfile';
+import OpenAi from './Components/OpenAi';
 
 const RecipeCard = ({onSubmit}) => {
   const [ingredients, setIngredients] = useState('');
@@ -124,6 +126,7 @@ const RecipeCard = ({onSubmit}) => {
 }
 
 const App = () => {
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ recipeData, setRecipeData ] = useState(null)
   const [ recipeText, setRecipeText ] = useState('')
 
@@ -186,6 +189,8 @@ const App = () => {
     <div className='App'>
       <div className='flex flex-row h-full my-4 gap-2 justify-center'>
         <RecipeCard onSubmit={onSubmit}/>
+        <UserProfile selectedIngredients={selectedIngredients} setSelectedIngredients={setSelectedIngredients} />
+        <OpenAi selectedIngredients={selectedIngredients} />
         <div className="w-[400px] h-[565px] text-xs text-gray-600 p-4 border rounded-lg shadow-xl whitespace-pre-line overflow-y-auto">
           {recipeText}
         </div>

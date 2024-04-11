@@ -25,3 +25,7 @@ yarn-error.log*
 
 appsettings.json
 appsettings.*.json
+
+.mono
+obj
+bin
