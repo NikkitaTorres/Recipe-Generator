@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import UserProfile from './Components/UserProfile';
+import Pantry from './Components/Pantry';
 import OpenAi from './Components/OpenAi';
 
 const RecipeCard = ({onSubmit}) => {
@@ -174,22 +174,13 @@ const App = () => {
     setRecipeData(data);
   }
 
-  // const getCompletion = async() => {
-  //   const response = await fetch('http://localhost:8000/completion', {
-  //     method: 'POST',
-  //     body: JSON.stringify({text}),
-  //     headers: {'Content-Type': 'application/json'}
-  //   })
-  //   const data = await response.json()
-  //   setResponse(data.message.content)
-  // }
 
   
   return(
     <div className='App'>
       <div className='flex flex-row h-full my-4 gap-2 justify-center'>
         <RecipeCard onSubmit={onSubmit}/>
-        <UserProfile selectedIngredients={selectedIngredients} setSelectedIngredients={setSelectedIngredients} />
+        <Pantry selectedIngredients={selectedIngredients} setSelectedIngredients={setSelectedIngredients} />
         <OpenAi selectedIngredients={selectedIngredients} />
         <div className="w-[400px] h-[565px] text-xs text-gray-600 p-4 border rounded-lg shadow-xl whitespace-pre-line overflow-y-auto">
           {recipeText}

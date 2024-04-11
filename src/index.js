@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './Components/Home';
+import App from './App';
+import Pantry from './Components/Pantry';
 import Footer from './Components/Footer';
-import UserProfile from './Components/UserProfile';
 import SignIn from './Components/SignIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

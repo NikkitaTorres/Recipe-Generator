@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import UserProfile from './UserProfile';
+import Pantry from './Pantry';
 
 const RecipeCard = ({onSubmit, selectedIngredients}) => {
   const [ingredients, setIngredients] = useState('');
@@ -16,14 +16,14 @@ const RecipeCard = ({onSubmit, selectedIngredients}) => {
       cookingTime,
       complexity,
     };
-    if (UserProfile.selectedIngredients !== null) {
-      recipeData.ingredients = UserProfile.selectedIngredients;
+    if (Pantry.selectedIngredients !== null) {
+      recipeData.ingredients = Pantry.selectedIngredients;
     }
     onSubmit(recipeData);
   };
 
   return (
-    // {UserProfile.isAuthenticated ? (
+    // {Pantry.isAuthenticated ? (
       // <div>
       //   <div className="mb-4">
       //     <label
@@ -37,9 +37,9 @@ const RecipeCard = ({onSubmit, selectedIngredients}) => {
       //       id="selectedIngredients"
       //       type="text"
       //       placeholder="Enter selected ingredients"
-      //       value={UserProfile.selectedIngredients}
+      //       value={Pantry.selectedIngredients}
       //       readOnly
-      //       onChange={(e) => UserProfile.setSelectedIngredients(e.target.value)}
+      //       onChange={(e) => Pantry.setSelectedIngredients(e.target.value)}
       //     />
       //     <div className="mb-4">
       //     <label
