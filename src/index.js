@@ -23,6 +23,7 @@ root.render(
         <Route path="/Register" element={<Register />} />
         <Route path="/OpenAi" element={<OpenAi />} />
         <Route path="/App" element={<App />} />
+        <Route path="/Pantry" element={<Pantry />} />
       </Routes>
       <Pantry />
     </React.StrictMode>
