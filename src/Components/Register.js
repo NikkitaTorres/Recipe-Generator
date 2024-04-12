@@ -2,21 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [registerData, setRegisterData] = useState({ email: " ", username: " ", password: " " });
+  const [registerData, setRegisterData] = useState({ email: "", username: "", password: "" });
   const [registerMessage, setRegisterMessage] = useState('');
   const navigate = useNavigate(); 
 
   const handleRegister = async () => {
     try {
       const response = await fetch('https://localhost:5001/Accounts/register', {
-        method: 'POST',
+        method: 'POST', // Corrected method case
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(registerData),
-        
       });
-      console.log(registerData);
       const data = await response.json();
       if (response.ok) {
         setRegisterMessage(data.message);
@@ -26,7 +24,6 @@ const Register = () => {
       }
     } catch (error) {
       console.error('Error registering:', error);
-
       setRegisterMessage('Unable to register');
     }
   }
@@ -68,7 +65,6 @@ const Register = () => {
 };
 
 export default Register;
-
 
 
 // const handleAddIngredient = async () => {
