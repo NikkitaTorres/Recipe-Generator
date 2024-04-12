@@ -26,6 +26,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error('Error registering:', error);
+
       setRegisterMessage('Unable to register');
     }
   }
