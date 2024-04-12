@@ -8,18 +8,19 @@ const SignIn = () => {
 
   const handleSignIn = async () => {
     try {
-      const response = await fetch('http://localhost:5000/Accounts/SignIn', {
-        method: 'Post',
+      const response = await fetch('http://localhost:5001/Accounts/SignIn', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(signInData),
       });
+      console.log(signInData);
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('token', data.token);
         setSignInMessage(data.message);
-        navigate('/pantry');
+        navigate('/Pantry');
       } else {
         setSignInMessage('Unable to sign in');
       }
