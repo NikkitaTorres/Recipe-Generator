@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "GardenApi": {
+    "Pantry.Solution": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

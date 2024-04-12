@@ -9,9 +9,10 @@ import Pantry from './Components/Pantry';
 import Footer from './Components/Footer';
 import SignIn from './Components/SignIn';
 import Register from './Components/Register';
+import { createRoot } from 'react-dom/client';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Header />
@@ -21,11 +22,10 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/OpenAi" element={<OpenAi />} />
         <Route path="/App" element={<App />} />
         <Route path="/Pantry" element={<Pantry />} />
       </Routes>
-      <Pantry />
+      
     </React.StrictMode>
     <Footer />
   </Router>

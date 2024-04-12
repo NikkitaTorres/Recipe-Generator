@@ -326,7 +326,7 @@ const RecipeCard = ({onSubmit, selectedIngredients}) => {
 //   )
 // }
 
-const App = () => {
+const AppB = () => {
   const [ recipeData, setRecipeData ] = useState(null)
   const [ recipeText, setRecipeText ] = useState('')
 
@@ -389,4 +389,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default AppB;
