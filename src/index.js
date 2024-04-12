@@ -7,18 +7,25 @@ import App from './App';
 import Pantry from './Components/Pantry';
 import Footer from './Components/Footer';
 import SignIn from './Components/SignIn';
+import Register from './Components/Register';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Header />
+
     <React.StrictMode>
       <Routes>
         <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Register" element={<Register />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/App" element={<App />} />
       </Routes>
-      <UserProfile />
+      <Pantry />
     </React.StrictMode>
+
+
     <Footer />
   </Router>
 );
