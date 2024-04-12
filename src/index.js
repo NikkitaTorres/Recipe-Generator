@@ -23,7 +23,7 @@ root.render(
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/App" element={<App />} />
-        <Route path="/Pantry" element={<Pantry/>} />
+        <Route path="/Pantry" element={<Pantry />} />
       </Routes>
       
     </React.StrictMode>
