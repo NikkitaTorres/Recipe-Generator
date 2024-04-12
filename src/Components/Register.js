@@ -4,9 +4,10 @@ const Register = () => {
   const [registerData, setRegisterData] = useState({ email: '', username: '', password: '' });
   const [registerMessage, setRegisterMessage] = useState('');
 
+
 const handleRegister = async () => {
   try {
-    const response = await fetch('http://localhost:5001/Accounts/Register', { //may need to update port#
+    const response = await fetch('http://localhost:5000/Accounts/Register', { //may need to update port#
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ return(
       <h2 className="font-bold text-2xl">Register</h2>
   <div className="mb-4">
   <input
-   className="shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+  className="shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
   type="text"
   placeholder="Email"
   value={registerData.email}

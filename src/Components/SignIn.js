@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const SignIn = () => {
   const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [signInMessage, setSignInMessage] = useState('');
@@ -8,7 +9,7 @@ const SignIn = () => {
   const handleSignIn = async () => {
     try {
       const response = await fetch('http://localhost:5000/Accounts/SignIn', { //may need to update port#
-        method: 'Post',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
