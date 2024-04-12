@@ -1,3 +1,48 @@
+# Recipe Generator
+
+A web application to input pantry items and have it generate a recipe using AI. 
+
+By Monica Barboza, Ravin Fisher, Zuri Gallegos and Nikkita Torres
+
+## Technologies Used
+
+- React
+- C#
+- MySQL
+- AI 
+
+## Authentication:
+
+- As a user, I want to create an account.
+- As a user, I want to be able to log in and log off.
+- As a user, I want to be able to see my list of pantry ingredients. Be able to add and remove items.
+
+## Stretch Goals
+
+- Users can save/favorite recipes
+
+## Setup/Installation Requirements
+
+## Known Bugs
+
+## License
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
