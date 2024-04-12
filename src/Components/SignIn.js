@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [signInMessage, setSignInMessage] = useState('');
-
+  const navigate = useNavigate(); 
 
   const handleSignIn = async () => {
     try {
-      const response = await fetch('http://localhost:5000/Accounts/SignIn', { //may need to update port#
+      const response = await fetch('http://localhost:5000/Accounts/SignIn', {
         method: 'Post',
         headers: {
           'Content-Type': 'application/json',
@@ -18,7 +19,7 @@ const SignIn = () => {
       if (response.ok) {
         localStorage.setItem('token', data.token);
         setSignInMessage(data.message);
-        window.location.href = '/';
+        navigate('/pantry');
       } else {
         setSignInMessage('Unable to sign in');
       }
@@ -28,7 +29,6 @@ const SignIn = () => {
     }
   }
 
-// add a border around input div
   return (
     <div id="input" className="text-center ">
       <h2 className="font-bold text-2xl">Sign In</h2>
