@@ -25,7 +25,7 @@ root.render(
         <Route path="/App" element={<App />} />
         <Route path="/Pantry" element={<Pantry />} />
       </Routes>
-      
+    
     </React.StrictMode>
     <Footer />
   </Router>

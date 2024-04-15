@@ -18,6 +18,7 @@ const Register = () => {
       const data = await response.json();
       if (response.ok) {
         setRegisterMessage(data.message);
+        
         navigate('/pantry');
       } else {
         setRegisterMessage('Unable to register');
@@ -29,64 +30,38 @@ const Register = () => {
   }
 
   return (
-    <div className="text-center">
-      <h2 className="font-bold text-2xl">Register</h2>
-      <div className="mb-4">
-        <input
-          className="shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          placeholder="Email"
-          value={registerData.email}
-          onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
-        />
+    <div className="flex justify-center items-center p-12">
+      <div className="p-6 max-w-md w-full bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-8">
+          <h2 className="font-bold text-2xl mb-4">Register</h2>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+            type="text"
+            placeholder="Email"
+            value={registerData.email}
+            onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
+          />
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+            type="text"
+            placeholder="Username"
+            value={registerData.username}
+            onChange={(e) => setRegisterData({ ...registerData, username: e.target.value })}
+          />
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+            type="password"
+            placeholder="Password"
+            value={registerData.password}
+            onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
+          />
+          <button className="bg-lime-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" onClick={handleRegister}>Register</button>
+          <p className={`text-red-500 p-4 ${registerMessage ? 'block' : 'hidden'}`}>{registerMessage}</p>
+        </div>
       </div>
-      <div className="mb-4">
-        <input
-          className="shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          placeholder="Username"
-          value={registerData.username}
-          onChange={(e) => setRegisterData({ ...registerData, username: e.target.value })}
-        />
-      </div>
-      <div className="mb-4">
-        <input
-          className="shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="password"
-          placeholder="Password"
-          value={registerData.password}
-          onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
-        />
-      </div>
-      <button className="bg-lime-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleRegister}>Register</button>
-      <p className={registerMessage ? 'error-message' : ''}>{registerMessage}</p>
     </div>
+
   );
 };
 
 export default Register;
-
-
-// const handleAddIngredient = async () => {
-
-//   try {
-//     const response = await fetch('http://localhost:5000/Ingredient/addIngredient', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(ingredientName),
-//     });
-
-//     if (response.ok) {
-//       console.log('Ingredient added successfully');
-   
-//     } else {
-//       console.log('Failed to add ingredient');
-     
-//     }
-//   } catch (error) {
-//     console.log('An error occurred while adding ingredient:', error);
-    
-//   }
-// };

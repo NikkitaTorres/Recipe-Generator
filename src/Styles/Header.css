@@ -12,25 +12,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
+  flex-grow: 3;
+  margin-left: 60px;
+  margin-bottom: 20px;
 }
 
 .logo {
-  max-width: 30%; 
+  max-width: 40%; 
   height: auto; 
-  margin-right: 10px;
+  margin-left: 80px;
+  padding-top: 10px;
+}
+
+.menu {
+  align-items: center;
   
 }
 
+.menu button {
+  margin-top: 200px;
+}
 
 @media screen and (max-width: 768px) {
   .site-title {
     font-size: 20px; 
+  }
+
+  .menu button {
+    margin-top: 10px;
+    align-items: center;
   }
 }
 
 @media screen and (max-width: 576px) {
   .site-title {
     font-size: 18px; 
+    flex-direction: row;
+    align-items: center;
   }
 }
+
