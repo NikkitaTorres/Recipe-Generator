@@ -11,7 +11,7 @@ function Home() {
 		window.location.href = '/Register';
 	}
   const handleOpenAi = () => {
-    window.location.href = 'OpenAi';
+    window.location.href = 'App';
   }
   return (
     <div className="bg-yellow-200 min-h-screen flex items-center justify-center">

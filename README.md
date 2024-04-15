@@ -25,6 +25,8 @@ By Monica Barboza, Ravin Fisher, Zuri Gallegos and Nikkita Torres
 
 ## Known Bugs
 
+At the moment, AI will generate a recipe that does not always include all ingredients that a user types in, or it will generate a recipe that includes ingredients a user did not enter.
+
 ## License
 
 

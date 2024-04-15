@@ -180,8 +180,6 @@ const App = () => {
     <div className='App'>
       <div className='flex flex-row h-full my-4 gap-2 justify-center'>
         <RecipeCard onSubmit={onSubmit}/>
-        <Pantry selectedIngredients={selectedIngredients} setSelectedIngredients={setSelectedIngredients} />
-        <OpenAi selectedIngredients={selectedIngredients} />
         <div className="w-[400px] h-[565px] text-xs text-gray-600 p-4 border rounded-lg shadow-xl whitespace-pre-line overflow-y-auto">
           {recipeText}
         </div>

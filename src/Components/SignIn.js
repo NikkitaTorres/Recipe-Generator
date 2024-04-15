@@ -19,7 +19,6 @@ const SignIn = ({ onSignInSuccess }) => {
         },
         body: JSON.stringify(signInData),
       });
-      console.log(signInData); //remove line before submitting code.
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('token', data.token);
