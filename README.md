@@ -10,12 +10,12 @@ By Monica Barboza, Ravin Fisher, Zuri Gallegos and Nikkita Torres
 - C#
 - MySQL
 - AI 
+- nodemon
+- Tailwind CSS
+- Express
+- Entity framework core
 
-## Authentication:
-
-- As a user, I want to create an account.
-- As a user, I want to be able to log in and log off.
-- As a user, I want to be able to see my list of pantry ingredients. Be able to add and remove items.
+npm install react-router-dom
 
 ## Stretch Goals
 
@@ -23,27 +23,103 @@ By Monica Barboza, Ravin Fisher, Zuri Gallegos and Nikkita Torres
 
 ## Setup/Installation Requirements
 
+1. To run locally on your computer, clone the main branch of this [repository](https://github.com/NikkitaTorres/Recipe-Generator).
+2. In the root folder of this application (recipe-generator), run `npm install` to install necessary dependencies. Also run `npm i openai`, `npm i express cors`, and `npm i nodemon`.
+3. Again, in the root folder of this application (recipe-generator), you will need to create a .env file with the following information:
+```
+OPENAI_API_KEY=YOUR_API_KEY
+```
+Replace YOUR_API_KEY with your key for https://chat.openai.com/.
+4. In your terminal, navigate to the Pantry.Solution directory and run `dotnet restore`.
+5. Create a new file in the Pantry.Solutions directory called appsettings.json.
+6. In `appsettings.json`, enter the following, replacing `USERNAME` and `PASSWORD` to match the settings of your local MySQL server. Replace `DATABASE-NAME` with whatever you would like to name your database.
+  
+```
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=DATABASE-NAME;uid=USERNAME;pwd=PASSWORD;"
+    },
+    "JWT": {
+        "ValidAudience": "example-audience",
+        "ValidIssuer": "example-issuer",
+        "Secret": "SecretPassword12"
+    }
+}
+```
+7. You will need 3 separate terminals to fully launch this project. In the first terminal, in the root folder (recipe-generator), run the command `npm run start:backend`. 
+8. In your second terminal, run the command `npm run start:backend`.
+9. In the last terminal, navigate to the Pantry.Solution directory and run `dotnet ef database update` to create a local database. Then enter the `dotnet run` command to launch the database.
+
+### API Endpoints
+
+Account Registration/Login Management:
+
+`POST http://localhost:5000/api/Accounts/register` This will create a request to register and sign a user up for an account.
+Here is an example of what the request body will look like:
+{
+  "email": "string", - User's email
+  "userName": "string", - User's username, should match the email used above
+  "password": "string" - User's password
+}
+`POST http://localhost:5000/api/Accounts/SignIn` This will create a request to the database to verify the user's account information exists within the database.
+Here is an example of what the request body will look like:
+{
+  "email": "string",
+  "password": "string"
+}
+
+Ingredient requests:
+`GET http://localhost:5000/api/Ingredients/Ingredients` This will pull a list of ingredients listed within a users account so they can see them
+displayed on the page.
+
+`POST http://localhost:5000/api/Ingredients/AddIngredient` This will create a new ingredient to add to a user's existing list of ingredients.
+Here is an example of what the request body will look like:
+{
+  "ingredientId": 0,
+  "name": "string",
+  "user": {
+    "id": "string",
+    "userName": "string",
+    "normalizedUserName": "string",
+    "email": "string",
+    "normalizedEmail": "string",
+    "emailConfirmed": true,
+    "passwordHash": "string",
+    "securityStamp": "string",
+    "concurrencyStamp": "string",
+    "phoneNumber": "string",
+    "phoneNumberConfirmed": true,
+    "twoFactorEnabled": true,
+    "lockoutEnd": "2024-04-15T18:46:18.030Z",
+    "lockoutEnabled": true,
+    "accessFailedCount": 0
+  }
+}
+
+`DELETE http://localhost:5000/api/Ingredients/{id}}` This will delete a specific ingredient within a user's list of ingredients.
+
 ## Known Bugs
 
 At the moment, AI will generate a recipe that does not always include all ingredients that a user types in, or it will generate a recipe that includes ingredients a user did not enter.
 
 ## License
 
+MIT License
 
+Copyright (c) 2024
 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-
-
-
-
-
-
-
-
-
-
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Getting Started with Create React App
 
