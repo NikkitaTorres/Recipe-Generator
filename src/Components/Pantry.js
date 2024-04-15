@@ -11,7 +11,7 @@ const Pantry = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const authToken = localStorage.getItem('authToken');
+    const authToken = localStorage.getItem('token');
     if (authToken) {
       setIsLoggedIn(true);
     } else {
@@ -19,17 +19,17 @@ const Pantry = () => {
       navigate('/SignIn');
     }
   
-    // Set up a timer to refresh authentication status every minute
-    const intervalId = setInterval(() => {
-      const newAuthToken = localStorage.getItem('authToken');
-      if (!newAuthToken) {
-        setIsLoggedIn(false);
-        navigate('/SignIn');
-      }
-    }, 60000);
+    // // Set up a timer to refresh authentication status every minute
+    // const intervalId = setInterval(() => {
+    //   const newAuthToken = localStorage.getItem('authToken');
+    //   if (!newAuthToken) {
+    //     setIsLoggedIn(false);
+    //     navigate('/SignIn');
+    //   }
+    // }, 60000);
   
-    // Clean up the timer when the component unmounts
-    return () => clearInterval(intervalId);
+    // // Clean up the timer when the component unmounts
+    // return () => clearInterval(intervalId);
   }, [navigate]);
 
   const addIngredientToPantry = async () => {
@@ -101,15 +101,28 @@ const Pantry = () => {
     };
 
     return (
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter Ingredient name"
-          value={ingredientName}
-          onChange={(e) => setIngredientName(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+
+      <div>
+        {isLoggedIn ? (
+          <div>
+            <form onSubmit={handleSubmit}>
+            <input
+            type="text"
+            placeholder="Enter Ingredient name"
+            value={ingredientName}
+            onChange={(e) => setIngredientName(e.target.value)}
+            />
+            <button type="submit">Add</button>
+            </form>
+          </div>
+        ) : (
+          <div>
+            <p>Please sign in to access your pantry.</p>
+            </div>
+        )}
+      </div>
+
+      
     );
   };
 
